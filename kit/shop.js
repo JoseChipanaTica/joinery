@@ -77,6 +77,8 @@ export function tools(piece) {
     solid.length && item(by('Jack and jointer planes, winding sticks', 'Jointer and thickness planer, or buy the wood planed all round'), 'solid parts'),
     sheet.length && item(by('Track saw, or a circular saw run along a clamped straightedge', 'Track saw or panel saw, then the table saw for final sizes',
       'CNC router with a compression bit, cutting the nests in sheet-*.svg'), 'sheet goods'),
+    wood.some(p => cls(p) === 'veneer') && item(by('Household iron, edge-banding trimmer and a fine file', 'Edge-banding iron or edge bander, and an edge trimmer',
+      'Edge bander'), 'banding the exposed edges of veneered sheet'),
   ]);
 
   const mort = of('mortise'), dow = of('dowel', 'dowel-hole'), grv = of('groove'), dad = of('dado'), reb = of('rebate');
