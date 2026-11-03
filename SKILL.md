@@ -1,6 +1,8 @@
 ---
 name: joinery
-description: Turn a photo of a piece of furniture (a table, chair, bench, shelf, sideboard, bed, desk) into a buildable 3D model a carpenter can make from — every part as real stock with real joinery, an interactive offline HTML page with an exploded view, x-ray and step-by-step assembly, plus the maker pack - cut list, dimensioned shop drawings, what wood to buy, hardware and an illustrated assembly manual. Use when someone sends a furniture picture and wants it built, wants "plans", a "cut list", an "exploded view", "how is this made", "can a carpenter make this", or wants to redesign a piece in different dimensions or wood.
+description: Turns a photo of a piece of furniture (a table, chair, bench, shelf, sideboard, bed, desk) into a buildable 3D model a carpenter can make from — every part as real stock with real joinery, an interactive offline HTML page with an exploded view, x-ray and step-by-step assembly, plus the maker pack - cut list, dimensioned shop drawings, what wood to buy, hardware and an illustrated assembly manual. Use when someone sends a furniture picture and wants it built, wants "plans", a "cut list", an "exploded view", "how is this made", "can a carpenter make this", or wants to redesign a piece in different dimensions or wood.
+license: MIT
+compatibility: Node 20.10+ (npm install once in the skill folder); Chromium via Playwright or the CHROMIUM env var for review stills
 ---
 
 # Joinery
@@ -60,7 +62,7 @@ Write all of that into `spec.json` using `templates/spec.schema.json`. The spec 
 
 **Parts** are axis-aligned boxes in their assembled pose: `box(id, name, [sx, sy, sz], [x, y, z], {grain, material, edge, explode, inferred, note})`. x is length, y is up with the floor at 0, z is depth. `grain` is the axis the wood runs along — it decides the stock length in the cut list and the ring pattern in the render. Parts that are the same cut get the same `name` and merge into one cut-list line; `id` stays unique.
 
-**Curved and radiused parts** keep a bounding box for `size`/`at` and add `profile: {axis, path, note}`: the real outline across `axis`, centred on the box (`quarterRing(R, t, [su, sv])` for a bent corner, `roundedRect(w, h, radii)` for radiused glass, a back or a racetrack top, `circle(d)` for a round leg; `profile.taper: {to, end}` tapers it toward one end). It renders extruded, validates on its outline, and draws as its outline. When the box is not the stock (a bent lamination), add `stock: {L, W, T, layers, layerT}` and the cut list and buying list use that.
+**Curved and radiused parts** keep a bounding box for `size`/`at` and add `profile: {axis, path, note}`: the real outline across `axis`, centred on the box (`quarterRing(R, t, [su, sv])` for a bent corner, `roundedRect(w, h, radii)` for radiused glass, a back or a racetrack top, `circle(d)` for a round leg; `profile.taper: {to, end}` tapers it toward one end). It renders extruded, validates on its outline, and draws as its outline. When the box is not the stock (a bent lamination), add `stock: {L, W, T, layers, layerT}` and the cut list and buying list use that. A part curved in two directions (a carved chair back, a compound splat) has no body type yet: tell the person, model the nearest straight extrusion, and say so in its `note`.
 
 **Fittings** are bought hardware drawn on a part, not cut: `fittings: [{kind, size, at, material, axis, dir, holes: {n, d, cc, axis}}]` with `at` relative to the part's centre. Pulls, hooks and LED profiles render; their screw holes land on the part's drawing. List them in `hardware` too.
 
@@ -110,14 +112,3 @@ Checklist:
 ## Materials
 
 `kit/stage.js` → `MATERIALS`: white-oak, red-oak, walnut, maple, ash, beech, pine, cherry, birch-ply, mdf, steel, brass. Add a species as base/dark colours plus ring and streak strength. Also: walnut-mdf, walnut-bendply (veneered sheet), mdf-black, glass (transparent, drawn by its edges, ordered cut to size in the pack rather than cut from boards). The `materials` map in `definePiece` names them for the cut list ("White oak, solid").
-
-## Beyond v1
-
-- **Photoreal stills:** export the same parts to glTF and render in Blender Cycles with a scanned wood material; the model stays the single source.
-- **CNC:** `kit/drawings.js` has every cut as a rectangle on a face; a DXF writer per part is the next 80 lines.
-- **Curved parts:** `profile` covers outlines extruded straight (bent corners, radiused panels, glass). A part curved in two directions (a chair's compound back splat) still needs a new body type.
-- **Photogrammetry:** when several photos exist, run them through an external reconstruction first and use its measurements as anchors; the rest of the pipeline is unchanged.
-
-## Credits
-
-Pipeline shape (reference first, one parameter block, build-and-screenshot review loop) after [elvarofficial/teardown](https://github.com/elvarofficial/teardown) and [whaleyxbt/claude-motion](https://github.com/whaleyxbt/claude-motion), MIT. MIT licence.

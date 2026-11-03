@@ -112,6 +112,13 @@ The full rules are in [`SKILL.md`](SKILL.md).
 - **Parts are boxes or straight extrusions.** Bent corners, round and tapered legs and radiused panels work. A part curved in two directions, like a carved chair back, does not yet.
 - **Metric.** Sizes are in millimetres and stock is metric.
 
+## Roadmap
+
+- **Compound curves.** A body type for parts curved in two directions, so chairs with carved backs can be built.
+- **CNC.** `kit/drawings.js` already has every cut as a rectangle on a face; a DXF writer per part is the next step.
+- **Photoreal stills.** Export the same parts to glTF and render in Blender Cycles with a scanned wood material, keeping the model as the single source.
+- **Several photos.** Run them through an external photogrammetry reconstruction first and use its measurements as anchors; the rest of the pipeline stays the same.
+
 ## Contributing
 
 New pieces, materials, joints and corrections from people who build furniture are all welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
