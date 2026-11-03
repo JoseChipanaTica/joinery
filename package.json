@@ -1,0 +1,43 @@
+{
+  "name": "joinery",
+  "version": "0.1.0",
+  "description": "A Claude Code skill that turns a furniture photo into a buildable 3D model: parts, joinery, cut list, drawings and an assembly manual.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Jose Paul Chipana Tica",
+  "homepage": "https://github.com/JoseChipanaTica/joinery#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoseChipanaTica/joinery.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JoseChipanaTica/joinery/issues"
+  },
+  "keywords": [
+    "claude-code",
+    "claude-skill",
+    "agent-skill",
+    "furniture",
+    "woodworking",
+    "joinery",
+    "cut-list",
+    "three.js"
+  ],
+  "private": true,
+  "engines": {
+    "node": ">=20.10"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "pack": "node pack.mjs",
+    "capture": "node capture.mjs",
+    "test": "node build.mjs && for d in examples/*/; do node pack.mjs \"$(basename \"$d\")\" || exit 1; done"
+  },
+  "dependencies": {
+    "esbuild": "^0.24.0",
+    "three": "^0.170.0"
+  },
+  "optionalDependencies": {
+    "playwright": "^1.48.0"
+  }
+}

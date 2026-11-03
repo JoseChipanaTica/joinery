@@ -1,0 +1,29 @@
+{
+  "name": "Walnut display cabinet",
+  "type": "bookshelf",
+  "shop": "cabinet",
+  "source": {
+    "photo": "reference photo (front three-quarter view from the right, eye level about mid-height; walnut case with large rounded corners, two frameless glass doors, three glass shelves, walnut back, recessed black plinth; inside of the shell, hinges and fixings not visible)",
+    "anchors": "none given. Overall 800 W × 400 D × 2000 H assumed: the photo gives case height ÷ width = 2.41 and plinth ≈ 0.09 × width, so 800 wide makes a 1930 case on a 70 plinth. Depth 400 is assumed (the side is too foreshortened to read) and is the usual maximum for a bookcase",
+    "assumptions": "Proportions read from the photo against the assumed 800 width: outside corner radius 110 (≈ 0.14 × width), shell wall 25, plinth 70 high and set in to start where the corner curves begin, 40 back from the front. Shelves read as three equal spaces → four 464 mm compartments. The shell is built the way a cabinet shop would build it, not in solid wood: top, bottom and sides are 25 mm walnut-veneered MDF; each corner is a bent lamination of 3 × 8 mm bending ply with walnut veneer on both faces, glued over an R85 form; corners join the flat panels with ⌀8 dowels, 4 per joint. Solid walnut would need coopered or 13-ply bent corners and would move against the panels. A 2 mm walnut edge band runs round the front edge in one piece after glue-up, so the grain reads continuous round the curves. Back: 9 mm walnut-veneered MDF (photo shows vertical, book-matched grain) dropped into a 9 × 10 rebate routed round the back after glue-up, glued and pinned, which squares the shell. Glass doors: 6 mm toughened, polished edges, outer corners R83 to follow the case with an even 2 mm gap, 4 mm at the centre. They are hung on side-mounted clamp hinges (3 per door, no drilling in the glass), because the large corner radius leaves no flat top or bottom to take pivot hinges at the outer edge. No handles are visible, so push-to-open latches. Glass shelves: 8 mm toughened on ⌀5 pins, 4 per shelf (use 10 mm glass if it will carry a full row of books). Plinth: 18 mm MDF painted matt black, a dowelled frame pocket-screwed to the bottom. Inferred, not in the photo: rebate, dowels, hinges, latches, shelf pins, plinth back and ends. A 2 m cabinet only 400 deep must be fixed to the wall."
+  },
+  "params": {
+    "W": 800, "D": 400, "H": 2000,
+    "plinthH": 70, "plinthT": 18, "plinthInsetX": 110, "plinthFront": 40, "plinthBack": 20,
+    "t": 25, "R": 110,
+    "backT": 9, "rebate": 10,
+    "doorT": 6, "doorGap": 2, "doorMid": 4, "doorSet": 3,
+    "shelves": 3, "shelfT": 8, "shelfClear": 2, "shelfFront": 22,
+    "material": "walnut-mdf", "edge": { "type": "roundover", "size": 1 }
+  },
+  "visible_in_photo": ["top", "bottom", "sides", "bent corners", "back", "glass doors", "glass shelves", "plinth front"],
+  "inferred": ["rebate for the back", "corner dowels", "glass-door hinges", "push latches", "shelf pins", "plinth back and ends"],
+  "joinery": {
+    "flat panel → bent corner": "dowel ×4 ⌀8 (in-line butt, glued)",
+    "back → shell": "rebate 9 × 10, glued and pinned",
+    "glass shelf → side": "shelf-pin ⌀5 ×2 each side",
+    "glass door → side": "hinge (clamp type, 3 per door)",
+    "plinth end → plinth rail": "dowel ×2",
+    "plinth → bottom": "pocket-screw"
+  }
+}

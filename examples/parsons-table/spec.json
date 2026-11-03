@@ -1,0 +1,17 @@
+{
+  "name": "Parsons dining table",
+  "type": "dining-table",
+  "source": {
+    "photo": "reference photo (3/4 view, white oak, flush legs, no stretchers visible)",
+    "anchors": "overall length 1800 mm (given by user); height 750 mm (standard dining)",
+    "assumptions": "top thickness 40 mm read from edge proportion (~1/19 of length); legs 80 mm square from leg/length ratio; aprons not visible in photo → inferred, 80 × 25 mm, set flush with the outside of the legs as a Parsons table requires; mortise-and-tenon at legs (cabinet shop); top fixed with wooden buttons to allow movement; 2 mm chamfer on all edges"
+  },
+  "params": {
+    "L": 1800, "D": 900, "H": 750,
+    "topT": 40, "legW": 80, "apronH": 80, "apronT": 25,
+    "material": "white-oak", "edge": { "type": "chamfer", "size": 2 }
+  },
+  "visible_in_photo": ["top", "legs"],
+  "inferred": ["aprons", "buttons"],
+  "joinery": { "apron→leg": "mortise-tenon", "top→apron": "button" }
+}

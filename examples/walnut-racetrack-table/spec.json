@@ -1,0 +1,19 @@
+{
+  "name": "Walnut racetrack table",
+  "type": "dining-table",
+  "shop": "cabinet",
+  "source": {
+    "photo": "reference photo (high three-quarter view of a dining table with six chairs; the chairs hide most of the legs and the underside)",
+    "anchors": "none given. 1800 × 900 × 750 assumed: a standard six-seater (two chairs a side on the straight, one at each end) at standard dining height",
+    "assumptions": "Top read as a racetrack (stadium): straight sides with full half-round ends, R450 at 900 wide, in solid walnut 30 mm, a glue-up of five boards, the underside of the edge bevelled so it reads thin. Four round legs tapering from ⌀50 under the apron to ⌀32 at the foot, set in at the centres of the two end curves (450 from the middle, 110 in from the long edge), so the ends overhang 450 for the end chairs. A slim apron frame 70 × 22 under the top (the dark band just visible behind the near leg), stub mortise-and-tenon into the legs: the tenons are 20 deep so the two in each leg miss each other. Knee clearance under the apron 650. The top is held by wooden buttons in a groove inside the aprons so it can move across its width; never glue or screw it rigid. Inferred, not in the photo: the aprons' size and joinery, the buttons, the leg taper, the edge bevel"
+  },
+  "params": {
+    "L": 1800, "W": 900, "H": 750,
+    "topT": 30, "legD": 50, "legFoot": 32, "legInZ": 110,
+    "apronH": 70, "apronT": 22, "tenonLen": 20,
+    "material": "walnut-solid"
+  },
+  "visible_in_photo": ["top", "legs", "apron (partly)"],
+  "inferred": ["apron joinery", "buttons", "edge bevel"],
+  "joinery": { "apron → leg": "mortise-tenon, 20 deep", "top → apron": "button" }
+}

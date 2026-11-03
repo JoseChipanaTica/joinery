@@ -1,0 +1,36 @@
+{
+  "name": "Walnut hallway unit",
+  "type": "other",
+  "shop": "cabinet",
+  "source": {
+    "photo": "reference photo (straight-on view of a floor-to-ceiling unit in a hallway alcove beside the entrance door, camera about mid-height; inside the cupboards, the drawer boxes and how the frame is fixed are not visible)",
+    "anchors": "none given. 1000 W × 400 D × 2450 H assumed: the photo gives height ÷ width = 2.4, and at 1000 wide the counter lands at 852 mm, a normal console height. Depth 400 is assumed (shoes and coats need about that)",
+    "assumptions": "Read from the photo against the assumed 1000 width: a black frame of 20 × 20 mm square steel tube (four posts standing on the floor, a ring of rails 20 mm off the floor and a second ring between the shoe cabinet and the drawers, which is the black line across the front); three walnut boxes sit between the posts and are screwed to them: a shoe cabinet (40–650), a drawer case with a 25 mm counter at 852 that overhangs the drawer fronts by 20, and an upper cupboard from 1600 to 2375. Between counter and cupboard: a lit bay on the left with no side panel (the wall shows between the posts), two shelves at equal spacing on steel brackets welded to the posts and a white back lit by LED profiles, and a coat bay on the right with a walnut back and three hooks at 1460. Upper cupboard: a cane door on the left (frame with rattan webbing in a groove), a door over a cupboard and an open bottle cubby above the shelf at 1932, an open niche round the electrical panel with no back so the panel stays reachable, and a small door on the right. Shoe-cabinet doors read as frame-and-panel with a lattice vent: built here in solid walnut (stiles 50, rails 35–50, stub mortise-and-tenon), four raised panels 15 mm and a 12 mm CNC fretwork panel, all floating in 6 mm grooves. Carcasses are 18 mm walnut-veneered MDF with ⌀8 dowels, 9 mm backs screwed on; drawer boxes 15 mm birch ply on 350 mm side-mount slides. Doors overlay on 35 mm cup hinges (half-overlay on the shared partition). Inferred, not in the photo: the steel rails behind the boxes, shelf brackets, all joinery, hinges, slides, drawer boxes, shoe shelves, the cupboard shelf, backs. The LED lighting needs a 24 V driver and must be wired by an electrician; keep the electrical panel accessible and do not enclose it"
+  },
+  "params": {
+    "W": 1000, "D": 400, "H": 2450,
+    "post": 20, "ringLow": 20, "lowerTop": 650, "counterTop": 852, "upperBottom": 1600, "upperTop": 2375,
+    "t": 18, "backT": 9, "counterT": 25, "overhang": 20, "topT": 25, "gap": 3,
+    "divX": -20, "litShelves": 2, "hookY": 1460, "hooks": 3,
+    "p1": -225, "p2": 35, "p3": 295, "s1": 1932,
+    "frameT": 22, "stile": 50, "railTop": 45, "railLat": 35, "railMid": 35, "railBot": 50, "muntin": 40, "latH": 104,
+    "panelT": 15, "latT": 12, "groove": 6, "grooveD": 10,
+    "caneStile": 50, "caneRail": 60, "caneT": 3,
+    "drawerH": 100, "drawerD": 350, "slide": 12.5,
+    "material": "walnut-mdf"
+  },
+  "visible_in_photo": ["steel posts", "front rail between drawers and doors", "shoe cabinet", "lattice doors", "drawers", "counter", "lit bay shelves and back", "coat bay back and hooks", "bay divider", "upper cupboard", "cane door", "upper doors", "bottle cubby", "electrical niche", "top fascia"],
+  "inferred": ["steel rails behind and below the boxes", "shelf brackets", "dowels", "hinges", "drawer boxes and slides", "shoe shelves", "cupboard shelf", "backs of the boxes", "LED driver"],
+  "joinery": {
+    "steel rails → posts": "weld",
+    "carcass panels": "dowel ×3 ⌀8",
+    "boxes → steel frame": "screw through drilled tube",
+    "door rails → stiles": "mortise-tenon, stub 25 deep",
+    "door panels, cane, drawer bottoms": "groove",
+    "lit shelf → divider": "dowel ×3; left end on welded bracket",
+    "drawer box corners": "dado",
+    "drawer → case": "runner (side-mount slide)",
+    "doors → case": "hinge, 35 mm cup",
+    "backs": "screw"
+  }
+}

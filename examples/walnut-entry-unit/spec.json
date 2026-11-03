@@ -1,0 +1,36 @@
+{
+  "name": "Walnut entry unit",
+  "type": "other",
+  "shop": "cabinet",
+  "source": {
+    "photo": "reference photo (AI-generated render, straight-on view of a floor-to-ceiling hallway built-in, camera about 1.4 m up; inside the cupboards, the backs of the boxes and how they fix to the walls are not shown)",
+    "anchors": "none given. 1100 W × 400 D × 2400 H assumed: the photo gives height ÷ width = 2.16, and at 1100 wide the counter lands at 861 mm, a normal console height. Depth 400 is assumed",
+    "assumptions": "Proportions read from the photo against the assumed 1100 width. Base: a full-width shoe cabinet on a black plinth set back 50, with a 25 mm counter at 861; narrow side doors 155 wide, and between them two drawers over two doors. The black lines round the centre section are the front edges of the two partitions, banded black and showing in the 21 mm gap between doors; the drawers and doors open from black edge pulls near the centre, the narrow doors from that gap. The centre doors look like a routed, foil-wrapped slab; routing walnut veneer exposes the MDF core, so they are built here as frame-and-panel in solid walnut, which reads the same (four raised panels under a fretwork vent that also airs the shoes); a door maker can supply them as membrane-pressed MDF instead. Above the counter: two 40 mm solid-walnut floating shelves on the left wall on concealed rods, the lower one lit by an LED profile; a dark key column with a hook; a tower on the right with an anthracite left side, a walnut back with two coat hooks at 1580, and two anthracite shelves for bottles above. Over the left part: a wall cupboard with two handle-free doors and a black pull at the bottom centre, and under its right half a box set back 60 with a lift-up cane flap. Carcasses 18 mm walnut-veneered MDF with ⌀8 dowels, dark parts 18–25 mm MDF painted anthracite, backs 9 mm screwed on. Inferred, not in the photo: all joinery, hinges, slides, drawer boxes, shoe shelves, the wall-cupboard shelf, the flap fitting, the floating-shelf rods, wall fixings and backs. The base, tower and wall cupboard must be screwed to the wall; the LED needs a 24 V driver wired by an electrician"
+  },
+  "params": {
+    "W": 1100, "D": 400, "H": 2400,
+    "plinthH": 50, "plinthSet": 50, "counterTop": 861, "counterT": 25,
+    "t": 18, "backT": 9, "gap": 3, "sideW": 158,
+    "colX": 0, "towerX": 165, "caneX": -210, "caneSet": 60,
+    "caneBottom": 1705, "wallBottom": 2037, "top": 2363,
+    "floatT": 40, "floatD": 300, "floatTops": [1306, 1575],
+    "towerShelfT": 25, "towerShelfTops": [1749, 2052], "hookY": 1580,
+    "colShelfTops": [1060, 1575],
+    "frameT": 22, "stile": 50, "railTop": 40, "railLat": 35, "railMid": 35, "railBot": 50, "muntin": 40, "latH": 130,
+    "panelT": 15, "latT": 12, "groove": 6, "grooveD": 10,
+    "drawerH": 120, "drawerD": 350, "slide": 12.5,
+    "material": "walnut-mdf"
+  },
+  "visible_in_photo": ["plinth", "base cabinet", "narrow side doors", "drawers", "centre doors with vent and panels", "counter", "floating shelves", "LED", "key column", "tower with coat back, hooks and shelves", "wall cupboard", "cane flap box"],
+  "inferred": ["joinery", "hinges and flap fitting", "drawer boxes and slides", "shoe shelves", "wall-cupboard shelf", "floating-shelf rods", "backs", "wall fixings"],
+  "joinery": {
+    "carcass panels": "dowel ×3 ⌀8",
+    "centre door rails → stiles": "mortise-tenon, stub 25 deep",
+    "door panels, vent, cane, drawer bottoms": "groove",
+    "drawer box corners": "dado",
+    "drawer → case": "runner (side-mount slide)",
+    "doors → case": "hinge, 35 mm cup",
+    "floating shelf → key column": "dowel ×3, wall end on concealed rods",
+    "backs, plinth, boxes to each other": "screw"
+  }
+}

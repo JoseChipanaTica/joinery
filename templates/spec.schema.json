@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "joinery spec",
+  "description": "What the photo gave, what was assumed, and the parameter block the model is a function of. Written by Claude in step 1, read by the maker first.",
+  "type": "object",
+  "required": ["name", "type", "source", "params", "visible_in_photo", "inferred", "joinery"],
+  "properties": {
+    "name": { "type": "string", "examples": ["Parsons dining table"] },
+    "type": { "type": "string", "enum": ["dining-table", "coffee-table", "desk", "side-table", "bench", "chair", "stool", "bookshelf", "sideboard", "nightstand", "bed", "other"] },
+    "source": {
+      "type": "object",
+      "required": ["photo", "anchors", "assumptions"],
+      "properties": {
+        "photo": { "type": "string", "description": "filename + what the view shows and does not show" },
+        "anchors": { "type": "string", "description": "the real dimensions given, and who gave them" },
+        "assumptions": { "type": "string", "description": "every dimension read by proportion, every hidden part inferred, every joinery choice and why — one paragraph the maker reads first" }
+      }
+    },
+    "params": {
+      "type": "object",
+      "description": "mm. Everything model.js needs; change a number here and the whole pack follows.",
+      "properties": {
+        "L": { "type": "number" }, "D": { "type": "number" }, "H": { "type": "number" },
+        "material": { "type": "string", "description": "key in kit/stage.js MATERIALS" },
+        "edge": { "type": "object", "properties": { "type": { "enum": ["roundover", "chamfer", "sharp"] }, "size": { "type": "number" } } }
+      },
+      "additionalProperties": true
+    },
+    "visible_in_photo": { "type": "array", "items": { "type": "string" } },
+    "inferred": { "type": "array", "items": { "type": "string" }, "description": "part names the photo does not show; each is inferred: true in the model" },
+    "joinery": { "type": "object", "additionalProperties": { "type": "string" }, "description": "connection → joint type from templates/joinery-library.md" },
+    "shop": { "type": "string", "enum": ["hand", "cabinet", "cnc"], "default": "cabinet" }
+  }
+}
