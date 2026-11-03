@@ -222,7 +222,7 @@ export function definePiece(def) {
   steps.forEach(s => s.parts.forEach(id => { stepOf[id] = s.index; }));
   for (const p of parts) p.step = stepOf[p.id] ?? null;
   return {
-    name: def.name, type: def.type, params: P, materials: def.materials ?? {},
+    name: def.name, type: def.type, shop: def.shop ?? 'cabinet', finish: def.finish ?? 'hardwax-oil', params: P, materials: def.materials ?? {},
     hardware: built.hardware ?? [], parts, joints: built.joints ?? [], steps,
     bounds: bounds(parts), source: def.source ?? null,
   };

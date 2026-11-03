@@ -29,10 +29,10 @@ photo + anchors ─► spec.json ─► model.js ─► validate ─► page ─
 |---|---|---|
 | 1. Interpret | you, reading the photo | `spec.json`: type, anchors, materials, every part named, every joint chosen, every assumption written down |
 | 2. Model | you, writing `model.js` | the piece as a function of its params: boxes, joints, steps |
-| 3. Validate + pack | `node "$SKILL_DIR/pack.mjs" ./my-piece` | refuses to pack if anything collides or floats; writes cut list, drawings, stock, manual |
+| 3. Validate + pack | `node "$SKILL_DIR/pack.mjs" ./my-piece` | refuses to pack if anything collides or floats; writes cut list, drawings, board and sheet cutting diagrams, stock, tools and finishing, manual (and `manual.pdf` when Chromium is there) |
 | 4. Build page | `node "$SKILL_DIR/build.mjs" ./my-piece` | `joinery-out/dist/my-piece.html`, offline, ~570 KB |
 | 5. Review | `node "$SKILL_DIR/capture.mjs" my-piece --stills steps` | a contact sheet of every view and step — read it, fix, repeat |
-| 6. Pack again | `node "$SKILL_DIR/pack.mjs" ./my-piece` | manual now carries the step images |
+| 6. Pack again | `node "$SKILL_DIR/pack.mjs" ./my-piece` | manual and PDF now carry the step images |
 
 Start by copying the example closest to the piece. Each has every file a piece needs: `spec.json`, `model.js`, `main.js`. A piece usually lives in the person's own folder, not in `SKILL_DIR`: after copying, change the two `../../kit/` imports (in `model.js` and `main.js`) to the absolute path `$SKILL_DIR/kit/`.
 
@@ -51,14 +51,14 @@ A single photo gives **no scale and no hidden structure**. This skill is design 
 1. **Get anchors.** Ask for one to three real dimensions (overall L × D × H, or one known one like "the top is 180 cm"). If the person cannot give any, use the ergonomic standards in `kit/validate.js` (dining 750 H, seat 450 H) and say so. Every other dimension is a proportion read from the photo times the anchor.
 2. **Name the type.** `dining-table`, `chair`, `bookshelf`… this picks the ergonomic checks and the typical construction.
 3. **List what you can see and what you can't.** Legs, top, visible shelves are `visible`. Aprons under a thick top, back panels, stretchers, drawer runners, corner blocks are `inferred` — mark them `inferred: true` on the part so they are flagged in every output. The maker will override them; they must know which ones are yours.
-4. **Choose the joinery from the library** (`templates/joinery-library.md`), keyed by type × material × shop. Default to a cabinet shop: mortise-and-tenon for legs/aprons, dados for shelves, dowels or Dominos for panels, pocket screws only where hidden. Write the choice and the reason into `spec.source.assumptions`.
-5. **Read the material and finish.** Species from colour and figure, thickness from edge proportion, edge treatment (roundover / chamfer / sharp) from highlights. Thickness must land on a stock size (`STOCK_T` in `kit/validate.js`) — 40, not 38.7.
+4. **Choose the joinery from the library** (`templates/joinery-library.md`), keyed by type × material × shop. Ask what shop the maker has if it is not obvious (`shop`: `hand`, `cabinet`, `cnc`); it also picks the tool list. Default to a cabinet shop: mortise-and-tenon for legs/aprons, dados for shelves, dowels or Dominos for panels, pocket screws only where hidden. Write the choice and the reason into `spec.source.assumptions`.
+5. **Read the material and finish.** Species from colour and figure, thickness from edge proportion, edge treatment (roundover / chamfer / sharp) from highlights. Thickness must land on a stock size (`STOCK_T` in `kit/validate.js`) — 40, not 38.7. Set `finish` from the sheen: an open, matt surface is `hardwax-oil` (the default) or `oil`, an even satin film is `lacquer`. Painted and metal parts follow their material.
 
 Write all of that into `spec.json` using `templates/spec.schema.json`. The spec is for humans: the maker reads `source.assumptions` before anything else.
 
 ## Step 2: build the model
 
-`model.js` exports `piece = definePiece({name, type, params, source, materials, build})`. `build(P)` returns `{parts, joints, steps, hardware}`. The example is 70 lines; a chair is about 120.
+`model.js` exports `piece = definePiece({name, type, shop, finish, params, source, materials, build})`. `build(P)` returns `{parts, joints, steps, hardware}`. The example is 70 lines; a chair is about 120.
 
 **Parts** are axis-aligned boxes in their assembled pose: `box(id, name, [sx, sy, sz], [x, y, z], {grain, material, edge, explode, inferred, note})`. x is length, y is up with the floor at 0, z is depth. `grain` is the axis the wood runs along — it decides the stock length in the cut list and the ring pattern in the render. Parts that are the same cut get the same `name` and merge into one cut-list line; `id` stays unique.
 
@@ -106,7 +106,8 @@ Checklist:
 - **Joinery.** Mortises appear on the faces the aprons meet; tenons visible in the exploded view and in x-ray; nothing floats in mid-air in the exploded view (a part with no joint has no explode vector that makes sense).
 - **Steps.** Each step adds something you can see; the camera shows the parts being added; parts already placed are visible underneath. Step 1 is never the top.
 - **Drawings.** Every mortise, dado and hole on a drawing names its face and distance from the end. Cut-list lengths that include tenons say so.
-- **Stock.** The stock list has no board wider than 200 or thicker than 50; glue-ups and laminations are listed.
+- **Stock.** The stock list has no board wider than 200 or thicker than 50; glue-ups and laminations are listed. Every part sits on a board or sheet in the cutting diagrams.
+- **Tools and finish.** `tools.md` lists what the maker's shop would use, and the clamp lengths make sense for the biggest glue-up. Painted, veneered and metal parts each get their own finish.
 - **Render.** Nothing within 60 px of an edge, the panel never covers the piece, near-white woods (maple, ash) have a visible edge against the pale ground.
 
 ## Materials

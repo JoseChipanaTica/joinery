@@ -27,9 +27,10 @@ Node 20.10 or newer. If Playwright's Chromium will not launch, point `CHROMIUM` 
 `kit/` is shared by every piece, so a change there can move parts in all of them.
 
 - Run `npm test` and re-capture the sheet for at least the examples your change touches. Put before and after sheets in the pull request.
-- `kit/model.js`, `kit/validate.js`, `kit/cutlist.js`, `kit/drawings.js`, `kit/nest.js` and `kit/manual.js` must stay free of three.js; they run in Node for the pack.
+- `kit/model.js`, `kit/validate.js`, `kit/cutlist.js`, `kit/drawings.js`, `kit/nest.js`, `kit/shop.js` and `kit/manual.js` must stay free of three.js; they run in Node for the pack.
+- A new feature or joint that needs a tool the others don't should add it in `tools()` in `kit/shop.js`, for each of the three shops.
 - A new joint type needs its features in `applyJoinery`, a validate rule if it can fail, and a line in `SKILL.md` and `templates/joinery-library.md`.
-- A new material is an entry in `MATERIALS` in `kit/stage.js` and a line in the Materials section of `SKILL.md`.
+- A new material is an entry in `MATERIALS` in `kit/stage.js` and a line in the Materials section of `SKILL.md`. Check that `finishClass` in `kit/shop.js` puts it in the right finishing family (solid, veneer, painted, metal or none).
 
 ## Changing SKILL.md
 

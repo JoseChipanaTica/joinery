@@ -48,8 +48,10 @@ Claude asks for a real dimension if you didn't give one, writes down every assum
 |---|---|
 | `cutlist.csv` `cutlist.md` | Every part with finished size, material, grain direction and joinery. Tenon lengths are included in the stock. |
 | `drawings/*.svg` `assembly.svg` | One dimensioned drawing per unique part. Every mortise, dado, groove and hole names its face and its distance from the end. |
-| `stock.md` `sheet-*.svg` | What to buy: boards grouped by thickness with waste allowed, glue-ups and laminations planned, sheet goods nested on 2440 × 1220 sheets. |
-| `manual.html` | Assumptions first, then parts, hardware, and one illustrated page per assembly step. |
+| `stock.md` | What to buy: boards grouped by thickness with waste allowed, glue-ups and laminations planned, sheet goods nested on 2440 × 1220 sheets. |
+| `boards-*.svg` `sheet-*.svg` | Cutting diagrams to take to the lumber yard and the saw: every part drawn on the board or sheet it comes from. |
+| `tools.md` | The tools for this piece in the maker's shop (hand tools, cabinet shop or CNC), read from the joints: an 8 mm mortise asks for an 8 mm chisel, a curved top for a bandsaw, the widest glue-up for clamps of the right length. Then the finishing schedule per material, with quantities from the surface area. |
+| `manual.html` `manual.pdf` | Assumptions first, then parts, hardware and tools, one illustrated step per assembly stage, finishing, cutting diagrams and shop drawings. The PDF is printed on A4 when Chromium is available. |
 | `validation.txt` | Errors stop the pack: parts passing through each other, joints that don't touch, loose parts, a piece that floats, tenons breaking through or meeting inside a leg. Warnings are listed for the maker: odd stock thickness, short grain, a wide top glued rigid, heights outside the usual range. |
 
 | Shop drawing | Assembly manual |
@@ -99,7 +101,7 @@ The full rules are in [`SKILL.md`](SKILL.md).
 | `SKILL.md` | What Claude reads: how to read a photo honestly, how a piece is modelled, the rules that decide whether it can be built, the review loop. |
 | `kit/model.js` | The pure model: boxes, profiles, joints → features, steps, stock sizes. No three.js. |
 | `kit/validate.js` | Collisions, joints that don't touch, tenons that collide in a leg, short grain, wood movement, ergonomics. |
-| `kit/cutlist.js` `kit/drawings.js` `kit/nest.js` `kit/manual.js` | The maker pack, all reading the same model. |
+| `kit/cutlist.js` `kit/drawings.js` `kit/nest.js` `kit/shop.js` `kit/manual.js` | The maker pack, all reading the same model: cut list, drawings, cutting diagrams, tools and finishing, manual. |
 | `kit/stage.js` `kit/live.js` | Studio lighting, procedural wood shader (figure along the grain, end grain on the ends), and the page: explode, steps, isolate, x-ray, auto tour. |
 | `examples/` | Five complete pieces. |
 | `templates/` | The spec schema and the joinery library (which joint for which connection, per shop). |

@@ -115,7 +115,7 @@ export function build(P) {
 }
 
 export const piece = definePiece({
-  name: spec.name, type: spec.type, params: spec.params, source: spec.source,
+  name: spec.name, type: spec.type, shop: spec.shop, finish: spec.finish, params: spec.params, source: spec.source,
   materials: {
     'walnut-mdf': { name: 'Walnut-veneered MDF' },
     'walnut-bendply': { name: 'Bending ply' },

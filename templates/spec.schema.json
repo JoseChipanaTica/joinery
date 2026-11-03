@@ -29,6 +29,7 @@
     "visible_in_photo": { "type": "array", "items": { "type": "string" } },
     "inferred": { "type": "array", "items": { "type": "string" }, "description": "part names the photo does not show; each is inferred: true in the model" },
     "joinery": { "type": "object", "additionalProperties": { "type": "string" }, "description": "connection → joint type from templates/joinery-library.md" },
-    "shop": { "type": "string", "enum": ["hand", "cabinet", "cnc"], "default": "cabinet" }
+    "shop": { "type": "string", "enum": ["hand", "cabinet", "cnc"], "default": "cabinet", "description": "the maker's shop: picks the joinery and the tool list" },
+    "finish": { "type": "string", "enum": ["hardwax-oil", "oil", "lacquer"], "default": "hardwax-oil", "description": "clear finish for the wood, read from the sheen in the photo; painted and metal parts follow their material" }
   }
 }

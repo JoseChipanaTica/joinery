@@ -68,7 +68,7 @@ export function build(P) {
 }
 
 export const piece = definePiece({
-  name: spec.name, type: spec.type, params: spec.params, source: spec.source,
+  name: spec.name, type: spec.type, shop: spec.shop, finish: spec.finish, params: spec.params, source: spec.source,
   // colour read off the photo: a warm, medium-dark walnut
   materials: { 'walnut-solid': { name: 'Black walnut, solid', base: '#7e4e1f', dark: '#3f230a', ring: 0.6, streak: 1.0, rough: 0.9, clearcoat: 0, env: 0.3 } },
   build,

@@ -264,7 +264,7 @@ export function build(P) {
 }
 
 export const piece = definePiece({
-  name: spec.name, type: spec.type, params: spec.params, source: spec.source,
+  name: spec.name, type: spec.type, shop: spec.shop, finish: spec.finish, params: spec.params, source: spec.source,
   // colours read off the photo: a lighter, more golden walnut than the kit default
   materials: {
     'walnut-mdf': { name: 'Walnut-veneered MDF', base: '#9c7a58', dark: '#5a4230', ring: 0.5, streak: 1.0 },
